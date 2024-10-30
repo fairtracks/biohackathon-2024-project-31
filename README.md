@@ -29,7 +29,7 @@ We have a diverse group of people participating, both on-site and remotely - inc
 :loudspeaker: Get hold of us:
 
 - [Biohackathon slack community](https://biohackeu.slack.com/archives/C07MS890N6S): **Sveinung Gundersen**
-- Co-lead email:
+- Co-lead emails:
   - [**Gavin Chait**](mailto:gchait@whythawk.com)
   - [**Sveinung Gundersen**](mailto:sveinugu@uio.no)
 
