@@ -37,13 +37,6 @@ Our project is committed to inclusivity, guided by the [ELIXIR code of conduct f
 
 Remote participation is welcome, and we are supporting cross-over time-zones for our Australian contributors. Expect us online from about 7am CET from Tuesday, 6 November.
 
-## Resources
-
-- [Current list of remote and on-site contributors](https://docs.google.com/spreadsheets/d/10wO-5kNdaTUpsZ3C0z5bsaYnf5EbDAWPw86wTmeHPkI/edit?gid=946925182#gid=946925182)
-- [Resource reading list](https://docs.google.com/spreadsheets/d/10wO-5kNdaTUpsZ3C0z5bsaYnf5EbDAWPw86wTmeHPkI/edit?gid=750772179#gid=750772179)
-- [Potential genome annotation metadata case-studies](https://docs.google.com/spreadsheets/d/10wO-5kNdaTUpsZ3C0z5bsaYnf5EbDAWPw86wTmeHPkI/edit?gid=0#gid=0)
-- [Rolling collaboration notes](https://docs.google.com/document/d/1xT-45UgIp-ujkudaN589RgJdvib3vVj_N4L9SQAgltw/edit?usp=sharing)
-
 ## Abstract
 
 Advances in sequencing technologies and assembly algorithms have enabled an explosion in diverse reference genomes across the tree of life, together with a need to annotate functional and structural features. There is no current set of minimal metadata to support genome annotations as FAIR objects, limiting their reproducibility and reliability.
