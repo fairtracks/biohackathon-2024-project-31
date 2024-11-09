@@ -1,154 +1,157 @@
-[
-  {
-    "name": "local_id",
-    "type": "string"
-  },
-  {
-    "name": "study_global_id",
-    "type": "string"
-  },
-  {
-    "name": "study_study_name",
-    "type": "string"
-  },
-  {
-    "name": "study_collection_ref",
-    "type": "string"
-  },
-  {
-    "name": "study_publication",
-    "type": "array"
-  },
-  {
-    "name": "study_contact_name",
-    "type": "string"
-  },
-  {
-    "name": "study_contact_email",
-    "type": "string"
-  },
-  {
-    "name": "study_contact_orcid",
-    "type": "string"
-  },
-  {
-    "name": "sample_global_id",
-    "type": "array"
-  },
-  {
-    "name": "sample_sample_type_details",
-    "type": "array"
-  },
-  {
-    "name": "sample_phenotype",
-    "type": "string"
-  },
-  {
-    "name": "experiment_global_id",
-    "type": "string"
-  },
-  {
-    "name": "experiment_sample_ref",
-    "type": "string"
-  },
-  {
-    "name": "experiment_compute_protocol_description",
-    "type": "string"
-  },
-  {
-    "name": "experiment_technique",
-    "type": "string"
-  },
-  {
-    "name": "experiment_target_sequence_feature",
-    "type": "array"
-  },
-  {
-    "name": "experiment_target_details",
-    "type": "string"
-  },
-  {
-    "name": "track_global_id",
-    "type": "string"
-  },
-  {
-    "name": "track_assembly_id",
-    "type": "string"
-  },
-  {
-    "name": "track_assembly_name",
-    "type": "string"
-  },
-  {
-    "name": "track_file_name",
-    "type": "string"
-  },
-  {
-    "name": "track_file_url",
-    "type": "string"
-  },
-  {
-    "name": "track_label_short",
-    "type": "string"
-  },
-  {
-    "name": "track_label_long",
-    "type": "string"
-  },
-  {
-    "name": "track_file_format",
-    "type": "string"
-  },
-  {
-    "name": "track_checksum_method",
-    "type": "string"
-  },
-  {
-    "name": "track_checksum_hash",
-    "type": "string"
-  },
-  {
-    "name": "track_feature",
-    "type": "string"
-  },
-  {
-    "name": "experiment_annotation_method_global_id",
-    "type": "array"
-  },
-  {
-    "name": "experiment_annotation_method_name",
-    "type": "array"
-  },
-  {
-    "name": "experiment_annotation_method_version",
-    "type": "array"
-  },
-  {
-    "name": "experiment_annotation_method_flavour",
-    "type": "array"
-  },
-  {
-    "name": "track_evaluation_method_global_id",
-    "type": "array"
-  },
-  {
-    "name": "track_evaluation_method_name",
-    "type": "array"
-  },
-  {
-    "name": "track_evaluation_method_value",
-    "type": "array"
-  },
-  {
-    "name": "experiment_evidence_global_id",
-    "type": "array"
-  },
-  {
-    "name": "experiment_evidence_evidence_type",
-    "type": "array"
-  },
-  {
-    "name": "experiment_evidence_description",
-    "type": "array"
-  }
-]
+{
+    "fields": [
+        {
+            "name": "local_id",
+            "type": "string"
+        },
+        {
+            "name": "study_global_id",
+            "type": "string"
+        },
+        {
+            "name": "study_study_name",
+            "type": "string"
+        },
+        {
+            "name": "study_collection_ref",
+            "type": "string"
+        },
+        {
+            "name": "study_publication",
+            "type": "array"
+        },
+        {
+            "name": "study_contact_name",
+            "type": "string"
+        },
+        {
+            "name": "study_contact_email",
+            "type": "string"
+        },
+        {
+            "name": "study_contact_orcid",
+            "type": "string"
+        },
+        {
+            "name": "sample_global_id",
+            "type": "array"
+        },
+        {
+            "name": "sample_sample_type_details",
+            "type": "array"
+        },
+        {
+            "name": "sample_phenotype",
+            "type": "string"
+        },
+        {
+            "name": "experiment_global_id",
+            "type": "string"
+        },
+        {
+            "name": "experiment_sample_ref",
+            "type": "string"
+        },
+        {
+            "name": "experiment_compute_protocol_description",
+            "type": "string"
+        },
+        {
+            "name": "experiment_technique",
+            "type": "string"
+        },
+        {
+            "name": "experiment_target_sequence_feature",
+            "type": "array"
+        },
+        {
+            "name": "experiment_target_details",
+            "type": "string"
+        },
+        {
+            "name": "track_global_id",
+            "type": "string"
+        },
+        {
+            "name": "track_assembly_id",
+            "type": "string"
+        },
+        {
+            "name": "track_assembly_name",
+            "type": "string"
+        },
+        {
+            "name": "track_file_name",
+            "type": "string"
+        },
+        {
+            "name": "track_file_url",
+            "type": "string"
+        },
+        {
+            "name": "track_label_short",
+            "type": "string"
+        },
+        {
+            "name": "track_label_long",
+            "type": "string"
+        },
+        {
+            "name": "track_file_format",
+            "type": "string"
+        },
+        {
+            "name": "track_checksum_method",
+            "type": "string"
+        },
+        {
+            "name": "track_checksum_hash",
+            "type": "string"
+        },
+        {
+            "name": "track_feature",
+            "type": "string"
+        },
+        {
+            "name": "experiment_annotation_method_global_id",
+            "type": "array"
+        },
+        {
+            "name": "experiment_annotation_method_name",
+            "type": "array"
+        },
+        {
+            "name": "experiment_annotation_method_version",
+            "type": "array"
+        },
+        {
+            "name": "experiment_annotation_method_flavour",
+            "type": "array"
+        },
+        {
+            "name": "track_evaluation_method_global_id",
+            "type": "array"
+        },
+        {
+            "name": "track_evaluation_method_name",
+            "type": "array"
+        },
+        {
+            "name": "track_evaluation_method_value",
+            "type": "array"
+        },
+        {
+            "name": "experiment_evidence_global_id",
+            "type": "array"
+        },
+        {
+            "name": "experiment_evidence_evidence_type",
+            "type": "array"
+        },
+        {
+            "name": "experiment_evidence_description",
+            "type": "array"
+        }
+    ],
+    "name": "fairtracks_convenience_schema"
+}
