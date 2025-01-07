@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "notebooks"
+version = "0.1.0"
+description = "Tutorial for case-study crosswalk"
+authors = ["None"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.11,<3.13"
+omnipy = "^0.18.0"
+whyqd = "^1.1.3"
+jupyterlab = "^4.3.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
