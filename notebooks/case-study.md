@@ -47,7 +47,7 @@ This tutorial offers a guide through the process of assessing research resources
 
 While a specific use-case is demonstrated here, the objective is to gain a more general understanding of ensuring data interoperability, irrespective of the schema definitions or software chosen for implementation.
 
-The case-study is domain-specific but simply illustrates the degree of complexity involved in any research project and how ensuring interoperability always leads to trade-offs between source fidelity, and data reuse and discovery.
+The case-study is extremely domain-specific but simply illustrates the degree of complexity involved in any research project and how ensuring interoperability always leads to trade-offs between source fidelity, and data reuse and discovery.
 ## Minimal metadata for discovery and interoperability
 
 !!! quote
@@ -70,7 +70,7 @@ The draft [FAIRtracks Standard](https://github.com/fairtracks/fairtracks_standar
 
 FAIRtracks uses [EDAM](https://bioportal.bioontology.org/ontologies/EDAM),  a domain ontology of data analysis and data management in bio- and other sciences. It comprises concepts related to analysis, modelling, optimisation, and the research data life cycle. Targeting usability by diverse users, the structure of EDAM is relatively simple, divided into four main sections: Topic, Operation, Data (incl. Identifier), and Format.
 
-This model offers an extremely flexible approach for describing the genomic annotations in a project, albeit one with a stiff learning curve.
+This model offers an flexible approach for describing the genomic annotations in a project, albeit one with a stiff learning curve.
 
 Any conversion from a source schema to FAIRtracks will involve tradeoffs and development of a crosswalk, or interoperable mapping, between them.
 ## Strategies for developing interoperable mappings
