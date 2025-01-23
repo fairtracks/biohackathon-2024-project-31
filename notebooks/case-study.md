@@ -104,7 +104,7 @@ This tutorial is a guide to the approach a **small** team may take using semi-st
 This incremental approach permits data to be transformed and validated via more manageable steps.
 ## Deriving a convenience schema from a hierarchical model
 
-A **convenience** process works towards producing a single, flattened tabular version of the FAIRtracks schema, with *visual* or *tacit* validation, rather than strict enforcement of schema requirements.
+A **convenience** process works towards producing a single, flattened tabular version of a hierarchical schema, with *visual* or *tacit* validation, rather than strict enforcement of schema requirements.
 
 This could be as simple as downloading a CSV template with header columns and copying/pasting source data across, or using whyqd to manage the process. The flattened schema should include all information from the hierarchical schema, and should also be permissive so that incomplete / partial data from multiple spreadsheets can be progressively merged without issues of validation or completeness blocking individual steps.
 
@@ -115,10 +115,10 @@ The objectives of a *flattened* version of this hierarchy:
 - Ideally one - and **only** one - convenience schema definition,
 - Accessible as a single CSV with a header-row containing terms from across the original hierarchical version,
 - Accessible as a JSON-Schema form for use in whyqd or alternative software,
-- With definitions for each term adjusted to reflect a more permissive approach to data validation *in this step* - validation will still happen before conversion to the standard model,
-- And a standard script which maps the convenience schema to its final form.
+- With definitions for each term adjusted to reflect a more permissive approach to data validation *in this step* - validation will still happen before conversion to the standard model
+- A standard script which maps the convenience schema to its final form.
 
-These flattened forms are available as:
+These flattened forms will be available as:
 
 - CSV with header-row
 - whyqd schema
