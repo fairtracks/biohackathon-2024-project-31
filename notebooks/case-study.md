@@ -68,7 +68,7 @@ The draft [FAIRtracks Standard](https://github.com/fairtracks/fairtracks_standar
 - The main [FAIRtracks JSON Schema](https://github.com/fairtracks/fairtracks_standard/blob/master/docs/fairtracks.md),
 - This top-level schema contains four arrays of JSON sub-documents for the four main object types in FAIRtracks: [`studies`](https://github.com/fairtracks/fairtracks_standard/blob/master/docs/fairtracks_study.md), [`experiments`](https://github.com/fairtracks/fairtracks_standard/blob/master/docs/fairtracks_experiment.md), [`samples`](https://github.com/fairtracks/fairtracks_standard/blob/master/docs/fairtracks_sample.md), and [`tracks`](https://github.com/fairtracks/fairtracks_standard/blob/master/docs/fairtracks_track.md).
 
-FAIRtracks uses [EDAM](https://bioportal.bioontology.org/ontologies/EDAM),  a domain ontology of data analysis and data management in bio- and other sciences, and science-based applications. It comprises concepts related to analysis, modelling, optimisation, and data life cycle. Targeting usability by diverse users, the structure of EDAM is relatively simple, divided into four main sections: Topic, Operation, Data (incl. Identifier), and Format.
+FAIRtracks uses [EDAM](https://bioportal.bioontology.org/ontologies/EDAM),  a domain ontology of data analysis and data management in bio- and other sciences. It comprises concepts related to analysis, modelling, optimisation, and the research data life cycle. Targeting usability by diverse users, the structure of EDAM is relatively simple, divided into four main sections: Topic, Operation, Data (incl. Identifier), and Format.
 
 This model offers an extremely flexible approach for describing the genomic annotations in a project, albeit one with a stiff learning curve.
 
