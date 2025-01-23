@@ -47,7 +47,7 @@ This tutorial offers a guide through the process of assessing research resources
 
 While a specific use-case is demonstrated here, the objective is to gain a more general understanding of ensuring data interoperability, irrespective of the schema definitions or software chosen for implementation.
 
-The case-study is extremely domain-specific but simply illustrates the degree of complexity involved in any research project and how ensuring interoperability always leads to trade-offs between source fidelity, and data reuse and discovery.
+The case-study is domain-specific but simply illustrates the degree of complexity involved in any research project and how ensuring interoperability always leads to trade-offs between source fidelity, and data reuse and discovery.
 ## Minimal metadata for discovery and interoperability
 
 !!! quote
