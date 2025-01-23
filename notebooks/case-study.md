@@ -61,7 +61,7 @@ A [reference genome](https://en.wikipedia.org/wiki/Reference_genome) - the assem
 
 Knowledge of this isn't necessary to understand the case-study or schema in this tutorial, but it should be clear that describing such annotations - and cross-referencing them from a research project, with its specific research methodology, to online repositories of known genomes - is inherently complex. Given the geographic and research domain distribution of investigations, ensuring that research can be found and reused is as important as maintaining the original source data.
 
-If you do want to learn more, [Identifying elemental genomic track types and representing them uniformly](https://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-12-494) offers some insight. However, the domain of overlap between different research made available in a universal explorable repository is always going to be a subset.
+If you do want to learn more, this [F1000Research blog post about FAIRtracks](https://blog.f1000.com/2021/12/07/fairtracks/) and the [case statement of the FGA-WG initiative](https://www.rd-alliance.org/groups/fairification-genomic-annotations-wg/work-statement/?sow=169894) offers some insight. However, the domain of overlap between different research made available in a universal explorable repository is always going to be a subset.
 
 The draft [FAIRtracks Standard](https://github.com/fairtracks/fairtracks_standard/tree/master) consists of a hierarchical series of individual schemas which cross-reference each other, and include defined ontologies with reference terms, intended as a minimal standard for genomic track metadata.
 
