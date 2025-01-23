@@ -57,7 +57,11 @@ Just as research is a product of what was measured, how those measurements were 
 
 Some degree of information loss is inevitable when diverse data are remapped into an alternative schema. The trade-off between what is lost has to be balanced by the intention of what is gained through interoperability. After all, as long as the original source is maintained, any loss of fidelity should be recoverable.
 
-A [reference genome](https://en.wikipedia.org/wiki/Reference_genome) - the assembled sequence of (typically) DNA in one idealised example of a species - may be abstracted as a line-based coordinate system. The terms `genome annotation` or `genomic track`, as described by [UCSC Genome Browser](https://genome.ucsc.edu/goldenPath/help/hgTracksHelp.html#What), are used to refer to a series of data units positioned on such a line and referring to "known- or predicted genes, ESTs, mRNAs, CpG islands, assembly gaps and coverage, chromosomal bands, mouse homologies," and so on.
+A [reference genome](https://en.wikipedia.org/wiki/Reference_genome) - the assembled sequence of (typically) DNA in one idealised example of a species - may be abstracted as a line-based coordinate system. The terms `genome annotation` or `genomic track`, as described by [UCSC Genome Browser](https://genome.ucsc.edu/goldenPath/help/hgTracksHelp.html#What), are used to refer to a series of data units positioned on such a line and referring to "known- or predicted genes, ESTs, mRNAs, CpG islands, assembly gaps and coverage, chromosomal bands, mouse homologies," and so on (Figure 1).
+
+![](figure_1_genome_browser.jpeg)
+Figure 1: Example of genome annotations/tracks visualised in the [UCSC Genome Browser](https://genome.ucsc.edu/).
+From [Rosenbloom et. al. (2011)](https://doi.org/10.1093/nar/gkr1012). Nucleic acids research. 40. D912-7. License: [CC BY-NC 3.0](https://creativecommons.org/licenses/by-nc/3.0/)
 
 Knowledge of this isn't necessary to understand the case-study or schema in this tutorial, but it should be clear that describing such annotations - and cross-referencing them from a research project, with its specific research methodology, to online repositories of known genomes - is inherently complex. Given the geographic and research domain distribution of investigations, ensuring that research can be found and reused is as important as maintaining the original source data.
 
@@ -86,13 +90,13 @@ The path from project data and resources to  interoperable / publication-ready m
 
 A big research project with predefined metadata structure reduced to a relational database, with a dedicated data scientist or software engineer to produce automated scripts for export is very different from a small research team working off ad-hoc spreadsheets and documents.
 
-These constraints imply two different paths towards implementing an interoperable mapping (Figure 1):
+These constraints imply two different paths towards implementing an interoperable mapping (Figure 2):
 
 - **Direct**, using some general scripting language or a more specialised tool like Omnipy,
 - **Convenience**, where simpler scripts or manual operations are performed to convert source to a simplified interim schema with an already-coded set of executable scripts to convert to the final model.
 
 ![[tutorial-4-workflow.png]]
-_Figure 1: Research workflows for varying project complexity_
+_Figure 2: Research workflows for varying project complexity_
 
 This tutorial is a guide to the approach a **small** team may take using semi-structured data to produce FAIRtracks-conformant metadata. Instead of developing software to go direct from source to a formal hierarchical schema, a more calibrated approach is to work towards a `convenience schema` which has much the same metadata definitions as the full destination schema, but without the same validation enforcement, and with a simplified structure.
 
