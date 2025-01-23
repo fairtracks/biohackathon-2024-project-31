@@ -31,7 +31,7 @@ Data scientists often support specialists in other research domains where they h
 
 Advances in genetic sequencing technologies and assembly algorithms have enabled an explosion in diverse reference genomes across the tree of life, together with a need to annotate functional and structural features. There is no current set of minimal metadata to support genome annotations as [FAIR objects](https://en.wikipedia.org/wiki/FAIR_data), limiting their reproducibility and reliability.
 
-FAIR data are data which meet the FAIR principles of [findability](https://en.wikipedia.org/wiki/Findability "Findability"), accessibility, [interoperability](https://en.wikipedia.org/wiki/Interoperability "Interoperability"), and [reusability](https://en.wikipedia.org/wiki/Reusability "Reusability") (FAIR).
+FAIR data are data which meet the [FAIR principles](https://www.go-fair.org/fair-principles/) of findability, accessibility, interoperability, and reusability (FAIR).
 
 !!! note "Case Study"
 	[Annotation of protein-coding genes in 49 diatom genomes from the Bacillariophyta clade](https://docs.google.com/spreadsheets/d/1_1wKibSXbi8MQCTqpK03ytuQH71yn28xKuRS1i-mVSw/edit?gid=643002219#gid=643002219)
