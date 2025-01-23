@@ -131,20 +131,20 @@ There are always going to be compromises and one obvious way where this shows up
 | 0002      | New topic B |
 Which references sub-level terms like this:
 
-| Reference | Time  | Measurement   | Duration |
-| --------- | ----- | ------------- | -------- |
-| 0001      | 12h23 | Measurement A | 20       |
-| 0002      | 12h33 | Measurement A | 24       |
-Flattening this would necessitate lists as values in the new table:
+| Reference | Measurement A | Measurement B |
+| --------- |---------------|---------------|
+| 0001      | 20            | 2.4           |
+| 0002      | 24            | 1.8           |
+Also, say we need to flatten this data into a convenience table where different types of measurements must be merged. This would necessitate lists as values in the new table:
 
-| Reference | Topic       | Sub-level topics              | Sub-level values           |
-| --------- | ----------- | ----------------------------- | -------------------------- |
-| 0001      | New topic A | [Time, Measurement, Duration] | [12h23, Measurement A, 20] |
-| 0002      | New topic B | [Time, Measurement, Duration] | [12h33, Measurement A, 24] |
-The order of the two sets of lists must correspond to ensure appropriate labelling when this is unpacked later into the formal schema. And, obviously, it can get more complex than this. However, we have two types of column here:
+| Reference | Topic       | Measurement types | Measurements |
+| --------- | ----------- |-------------------|--------------|
+| 0001      | New topic A | [A, B]            | [20, 2.4]    |
+| 0002      | New topic B | [A, B]            | [24, 2.8]    |
+The order of the two sets of lists must correspond to ensure appropriate labelling of the measurements. And, obviously, it can get more complex than this. However, we have two types of column here:
 
-- *Extracted values* in `Sub-level values` are extracted directly from the source data. You can write a crosswalk for this using **whyqd's** `COLLATE` action.
-- *Constant terms* in `Sub-level topics` are a constant derived from the column headers (here, but the definitions in the convenience schema may call for completely different terms). You can add these using the `NEW` action ... however, is this appropriate?
+- *Extracted values* in `Measurements` are extracted directly from the source data. You can write a crosswalk for this using **whyqd's** `COLLATE` action.
+- *Constant terms* in `Measurement types` are a constant derived from the column headers (here, but the definitions in the convenience schema may call for completely different terms). You can add these using the `NEW` action ... however, is this appropriate?
 
 **whyqd's** primary purpose is auditable source data extraction into a destination schema. Missing data - whether constants or derived algorithmically from these source data - are beyond the scope and objective of a whyqd crosswalk.
 
