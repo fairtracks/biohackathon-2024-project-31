@@ -35,7 +35,7 @@ FAIR data are data which meet the FAIR principles of [findability](https://en.wi
 
 !!! note "Case Study"
 	[Annotation of protein-coding genes in 49 diatom genomes from the Bacillariophyta clade](https://docs.google.com/spreadsheets/d/1_1wKibSXbi8MQCTqpK03ytuQH71yn28xKuRS1i-mVSw/edit?gid=643002219#gid=643002219)
-	Diatoms, a major group of microalgae, play a critical role in global carbon cycling and primary production. Despite their ecological significance, comprehensive genomic resources for diatoms are limited. To address this, we have annotated previously unannotated genome assemblies of 49 diatom species. Genome assemblies were obtained from NCBI Datasets and processed for repeat elements using RepeatModeler2 and RepeatMasker. For gene prediction, BRAKER2 was employed in the absence of transcriptomic data, while BRAKER3 was utilized when transcriptome short read data were available from the Sequence Read Archive. The quality of genome assemblies and predicted protein sets was evaluated using BUSCO, ensuring high-quality genomic resources. Functional annotation was performed using EnTAP, providing insights into the biological roles of the predicted proteins. Our study enhances the genomic toolkit available for diatoms, facilitating future research in diatom biology, ecology, and evolution.
+	Diatoms, a major group of microalgae, play a critical role in global carbon cycling and primary production. Despite their ecological significance, comprehensive genomic resources for diatoms are limited. To address this, we have annotated previously unannotated genome assemblies of 49 diatom species. Genome assemblies were obtained from NCBI Datasets and processed for repeat elements using RepeatModeler2 and RepeatMasker. For gene prediction, BRAKER2 was employed in the absence of transcriptomic data, while BRAKER3 was utilised when transcriptome short read data were available from the Sequence Read Archive. The quality of genome assemblies and predicted protein sets was evaluated using BUSCO, ensuring high-quality genomic resources. Functional annotation was performed using EnTAP, providing insights into the biological roles of the predicted proteins. Our study enhances the genomic toolkit available for diatoms, facilitating future research in diatom biology, ecology, and evolution.
 
 The [FAIRification of Genomic Annotations Working Group (FGA-WG)](https://www.rd-alliance.org/groups/fairification-genomic-annotations-wg/) in the Research Data Alliance (RDA) will develop a harmonised metadata model and recommended infrastructure to improve discovery and reuse of publicly available genomic annotations/tracks, supporting harmonised metadata for [GFF3 files](https://en.wikipedia.org/wiki/General_feature_format). Such metadata exists in e.g. project-specific databases or spreadsheets, workflow systems, repositories, exchange formats, and linked data.
 
@@ -57,20 +57,25 @@ Just as research is a product of what was measured, how those measurements were 
 
 Some degree of information loss is inevitable when diverse data are remapped into an alternative schema. The trade-off between what is lost has to be balanced by the intention of what is gained through interoperability. After all, as long as the original source is maintained, any loss of fidelity should be recoverable.
 
-A reference genome - the sequence of genes which make up an organism's genome - may be abstracted as a line-based coordinate system. The terms `genome annotation` or `genomic track`, as described by [UCSC Genome Browser](https://genome.ucsc.edu/goldenPath/help/hgTracksHelp.html#What), are used to refer to a series of data units positioned on such a line and referring to "known- or predicted genes, ESTs, mRNAs, CpG islands, assembly gaps and coverage, chromosomal bands, mouse homologies," and so on.
+A [reference genome](https://en.wikipedia.org/wiki/Reference_genome) - the assembled sequence of (typically) DNA in one idealised example of a species - may be abstracted as a line-based coordinate system. The terms `genome annotation` or `genomic track`, as described by [UCSC Genome Browser](https://genome.ucsc.edu/goldenPath/help/hgTracksHelp.html#What), are used to refer to a series of data units positioned on such a line and referring to "known- or predicted genes, ESTs, mRNAs, CpG islands, assembly gaps and coverage, chromosomal bands, mouse homologies," and so on (Figure 1).
+
+![](figure_1_genome_browser.jpeg)
+
+_Figure 1: Example of genome annotations/tracks visualised in the [UCSC Genome Browser](https://genome.ucsc.edu/).
+From [Rosenbloom et. al. (2011)](https://doi.org/10.1093/nar/gkr1012). Nucleic acids research. 40. D912-7. License: [CC BY-NC 3.0](https://creativecommons.org/licenses/by-nc/3.0/)_
 
 Knowledge of this isn't necessary to understand the case-study or schema in this tutorial, but it should be clear that describing such annotations - and cross-referencing them from a research project, with its specific research methodology, to online repositories of known genomes - is inherently complex. Given the geographic and research domain distribution of investigations, ensuring that research can be found and reused is as important as maintaining the original source data.
 
-If you do want to learn more, [Identifying elemental genomic track types and representing them uniformly](https://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-12-494) offers some insight. However, the domain of overlap between different research made available in a universal explorable repository is always going to be a subset.
+If you do want to learn more, this [F1000Research blog post about FAIRtracks](https://blog.f1000.com/2021/12/07/fairtracks/) and the [case statement of the FGA-WG initiative](https://www.rd-alliance.org/groups/fairification-genomic-annotations-wg/work-statement/?sow=169894) offers some insight. However, the domain of overlap between different research made available in a universal explorable repository is always going to be a subset.
 
 The draft [FAIRtracks Standard](https://github.com/fairtracks/fairtracks_standard/tree/master) consists of a hierarchical series of individual schemas which cross-reference each other, and include defined ontologies with reference terms, intended as a minimal standard for genomic track metadata.
 
 - The main [FAIRtracks JSON Schema](https://github.com/fairtracks/fairtracks_standard/blob/master/docs/fairtracks.md),
 - This top-level schema contains four arrays of JSON sub-documents for the four main object types in FAIRtracks: [`studies`](https://github.com/fairtracks/fairtracks_standard/blob/master/docs/fairtracks_study.md), [`experiments`](https://github.com/fairtracks/fairtracks_standard/blob/master/docs/fairtracks_experiment.md), [`samples`](https://github.com/fairtracks/fairtracks_standard/blob/master/docs/fairtracks_sample.md), and [`tracks`](https://github.com/fairtracks/fairtracks_standard/blob/master/docs/fairtracks_track.md).
 
-FAIRtracks uses [EDAM](https://bioportal.bioontology.org/ontologies/EDAM),  a domain ontology of data analysis and data management in bio- and other sciences, and science-based applications. It comprises concepts related to analysis, modelling, optimisation, and data life cycle. Targeting usability by diverse users, the structure of EDAM is relatively simple, divided into four main sections: Topic, Operation, Data (incl. Identifier), and Format.
+FAIRtracks uses [EDAM](https://bioportal.bioontology.org/ontologies/EDAM),  a domain ontology of data analysis and data management in bio- and other sciences. It comprises concepts related to analysis, modelling, optimisation, and the research data life cycle. Targeting usability by diverse users, the structure of EDAM is relatively simple, divided into four main sections: Topic, Operation, Data (incl. Identifier), and Format.
 
-This model offers an extremely flexible approach for describing the genomic annotations in a project, albeit one with a stiff learning curve.
+This model offers an flexible approach for describing the genomic annotations in a project, albeit one with a stiff learning curve.
 
 Any conversion from a source schema to FAIRtracks will involve tradeoffs and development of a crosswalk, or interoperable mapping, between them.
 ## Strategies for developing interoperable mappings
@@ -86,20 +91,20 @@ The path from project data and resources to  interoperable / publication-ready m
 
 A big research project with predefined metadata structure reduced to a relational database, with a dedicated data scientist or software engineer to produce automated scripts for export is very different from a small research team working off ad-hoc spreadsheets and documents.
 
-These constraints imply two different paths towards implementing an interoperable mapping (Figure 1):
+These constraints imply two different paths towards implementing an interoperable mapping (Figure 2):
 
 - **Direct**, using some general scripting language or a more specialised tool like Omnipy,
 - **Convenience**, where simpler scripts or manual operations are performed to convert source to a simplified interim schema with an already-coded set of executable scripts to convert to the final model.
 
 ![[tutorial-4-workflow.png]]
-_Figure 1: Research workflows for varying project complexity_
+_Figure 2: Research workflows for varying project complexity_
 
 This tutorial is a guide to the approach a **small** team may take using semi-structured data to produce FAIRtracks-conformant metadata. Instead of developing software to go direct from source to a formal hierarchical schema, a more calibrated approach is to work towards a `convenience schema` which has much the same metadata definitions as the full destination schema, but without the same validation enforcement, and with a simplified structure.
 
 This incremental approach permits data to be transformed and validated via more manageable steps.
 ## Deriving a convenience schema from a hierarchical model
 
-A **convenience** process works towards producing a single, flattened tabular version of the FAIRtracks schema, with *visual* or *tacit* validation, rather than strict enforcement of schema requirements.
+A **convenience** process works towards producing a single, flattened tabular version of a hierarchical schema, with *visual* or *tacit* validation, rather than strict enforcement of schema requirements.
 
 This could be as simple as downloading a CSV template with header columns and copying/pasting source data across, or using whyqd to manage the process. The flattened schema should include all information from the hierarchical schema, and should also be permissive so that incomplete / partial data from multiple spreadsheets can be progressively merged without issues of validation or completeness blocking individual steps.
 
@@ -110,10 +115,10 @@ The objectives of a *flattened* version of this hierarchy:
 - Ideally one - and **only** one - convenience schema definition,
 - Accessible as a single CSV with a header-row containing terms from across the original hierarchical version,
 - Accessible as a JSON-Schema form for use in whyqd or alternative software,
-- With definitions for each term adjusted to reflect a more permissive approach to data validation *in this step* - validation will still happen before conversion to the standard model,
-- And a standard script which maps the convenience schema to its final form.
+- With definitions for each term adjusted to reflect a more permissive approach to data validation *in this step* - validation will still happen before conversion to the standard model
+- A standard script which maps the convenience schema to its final form.
 
-These flattened forms are available as:
+These flattened forms will be available as:
 
 - CSV with header-row
 - whyqd schema
@@ -126,20 +131,20 @@ There are always going to be compromises and one obvious way where this shows up
 | 0002      | New topic B |
 Which references sub-level terms like this:
 
-| Reference | Time  | Measurement   | Duration |
-| --------- | ----- | ------------- | -------- |
-| 0001      | 12h23 | Measurement A | 20       |
-| 0002      | 12h33 | Measurement A | 24       |
-Flattening this would necessitate lists as values in the new table:
+| Reference | Measurement A | Measurement B |
+| --------- |---------------|---------------|
+| 0001      | 20            | 2.4           |
+| 0002      | 24            | 1.8           |
+Also, say we need to flatten this data into a convenience table where different types of measurements must be merged. This would necessitate lists as values in the new table:
 
-| Reference | Topic       | Sub-level topics              | Sub-level values           |
-| --------- | ----------- | ----------------------------- | -------------------------- |
-| 0001      | New topic A | [Time, Measurement, Duration] | [12h23, Measurement A, 20] |
-| 0002      | New topic B | [Time, Measurement, Duration] | [12h33, Measurement A, 24] |
-The order of the two sets of lists must correspond to ensure appropriate labelling when this is unpacked later into the formal schema. And, obviously, it can get more complex than this. However, we have two types of column here:
+| Reference | Topic       | Measurement types | Measurements |
+| --------- | ----------- |-------------------|--------------|
+| 0001      | New topic A | [A, B]            | [20, 2.4]    |
+| 0002      | New topic B | [A, B]            | [24, 2.8]    |
+The order of the two sets of lists must correspond to ensure appropriate labelling of the measurements. And, obviously, it can get more complex than this. However, we have two types of column here:
 
-- *Extracted values* in `Sub-level values` are extracted directly from the source data. You can write a crosswalk for this using **whyqd's** `COLLATE` action.
-- *Constant terms* in `Sub-level topics` are a constant derived from the column headers (here, but the definitions in the convenience schema may call for completely different terms). You can add these using the `NEW` action ... however, is this appropriate?
+- *Extracted values* in `Measurements` are extracted directly from the source data. You can write a crosswalk for this using **whyqd's** `COLLATE` action.
+- *Constant terms* in `Measurement types` are a constant derived from the column headers (here, but the definitions in the convenience schema may call for completely different terms). You can add these using the `NEW` action ... however, is this appropriate?
 
 **whyqd's** primary purpose is auditable source data extraction into a destination schema. Missing data - whether constants or derived algorithmically from these source data - are beyond the scope and objective of a whyqd crosswalk.
 
