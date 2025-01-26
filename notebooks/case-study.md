@@ -22,9 +22,11 @@ How do you reconcile hierarchical source data with hierarchical destination sche
 	- Develop interoperable executable mappings from a bioinformatics case-study to the convenience schema.
 	
 	``` python
-	SOURCE_DATA ="whyqd_schemas/Meta-Data 49 Diatom Protein Coding Gene Annotations.xlsx"
+	SCHEMA_DESTINATION_PATH = "whyqd_schemas/fairtracks-convenience-schema.SCHEMA"
+	DATASOURCE_PATH = "whyqd_schemas/Meta-Data 49 Diatom Protein Coding Gene Annotations.xlsx"
 	MIMETYPE = "xlsx"
 	```
+
 ## Background to case study
 
 Data scientists often support specialists in other research domains where they have no prior knowledge. This case study presents an opportunity to identify and isolate the objectives for data interoperability even when immersed in a field - here genomics - where you may have no context.
@@ -41,13 +43,14 @@ The [FAIRification of Genomic Annotations Working Group (FGA-WG)](https://www.rd
 
 Harmonising metadata according to a unified data model requires the extraction, transformation and integration of data sourced in different research contexts, including messy data, using schema mappings or *crosswalks*. These operations are time-consuming and may introduce opaque errors. FAIR principles emphasise reproducibility and trust in data analyses with persisted and shared accessible, auditable and executable data transformation and validation methods.
 
-[Omnipy]([https://omnipy.readthedocs.io/](https://omnipy.readthedocs.io/)and [whyqd (/wɪkɪd/)](https://whyqd.readthedocs.io/) are independently-developed Python libraries offering general functionality for auditable and executable metadata mappings. Each is pragmatically designed to ensure transformations are executable on real-world data, with validation and feedback. They differ in scope and users, and provide complementary functionalities.
+[Omnipy](https://omnipy.readthedocs.io/) and [whyqd (/wɪkɪd/)](https://whyqd.readthedocs.io/) are independently-developed Python libraries offering general functionality for auditable and executable metadata mappings. Each is pragmatically designed to ensure transformations are executable on real-world data, with validation and feedback. They differ in scope and users, and provide complementary functionalities.
 
 This tutorial offers a guide through the process of assessing research resources to develop an appropriate strategy for mapping to the [FAIRtracks model](https://github.com/fairtracks/fairtracks_standard#overview-of-structure-of-the-fairtracks-standard)
 
 While a specific use-case is demonstrated here, the objective is to gain a more general understanding of ensuring data interoperability, irrespective of the schema definitions or software chosen for implementation.
 
 The case-study is extremely domain-specific but simply illustrates the degree of complexity involved in any research project and how ensuring interoperability always leads to trade-offs between source fidelity, and data reuse and discovery.
+
 ## Minimal metadata for discovery and interoperability
 
 !!! quote
@@ -59,25 +62,26 @@ Some degree of information loss is inevitable when diverse data are remapped int
 
 A [reference genome](https://en.wikipedia.org/wiki/Reference_genome) - the assembled sequence of (typically) DNA in one idealised example of a species - may be abstracted as a line-based coordinate system. The terms `genome annotation` or `genomic track`, as described by [UCSC Genome Browser](https://genome.ucsc.edu/goldenPath/help/hgTracksHelp.html#What), are used to refer to a series of data units positioned on such a line and referring to "known- or predicted genes, ESTs, mRNAs, CpG islands, assembly gaps and coverage, chromosomal bands, mouse homologies," and so on (Figure 1).
 
-![](figure_1_genome_browser.jpeg)
+![Example of genome annotations/tracks visualised in the UCSC Genome Browser](figure_1_genome_browser.jpeg)
 
 _Figure 1: Example of genome annotations/tracks visualised in the [UCSC Genome Browser](https://genome.ucsc.edu/).
 From [Rosenbloom et. al. (2011)](https://doi.org/10.1093/nar/gkr1012). Nucleic acids research. 40. D912-7. License: [CC BY-NC 3.0](https://creativecommons.org/licenses/by-nc/3.0/)_
 
 Knowledge of this isn't necessary to understand the case-study or schema in this tutorial, but it should be clear that describing such annotations - and cross-referencing them from a research project, with its specific research methodology, to online repositories of known genomes - is inherently complex. Given the geographic and research domain distribution of investigations, ensuring that research can be found and reused is as important as maintaining the original source data.
 
-If you do want to learn more, this [F1000Research blog post about FAIRtracks](https://blog.f1000.com/2021/12/07/fairtracks/) and the [case statement of the FGA-WG initiative](https://www.rd-alliance.org/groups/fairification-genomic-annotations-wg/work-statement/?sow=169894) offers some insight. However, the domain of overlap between different research made available in a universal explorable repository is always going to be a subset.
+If you do want to learn more, this [F1000 research blog post about FAIRtracks](https://blog.f1000.com/2021/12/07/fairtracks/) and the [case statement of the FGA-WG initiative](https://www.rd-alliance.org/groups/fairification-genomic-annotations-wg/work-statement/?sow=169894) offers some insight. However, the domain of overlap between different research made available in a universal explorable repository is always going to be a subset.
 
 The draft [FAIRtracks Standard](https://github.com/fairtracks/fairtracks_standard/tree/master) consists of a hierarchical series of individual schemas which cross-reference each other, and include defined ontologies with reference terms, intended as a minimal standard for genomic track metadata.
 
 - The main [FAIRtracks JSON Schema](https://github.com/fairtracks/fairtracks_standard/blob/master/docs/fairtracks.md),
 - This top-level schema contains four arrays of JSON sub-documents for the four main object types in FAIRtracks: [`studies`](https://github.com/fairtracks/fairtracks_standard/blob/master/docs/fairtracks_study.md), [`experiments`](https://github.com/fairtracks/fairtracks_standard/blob/master/docs/fairtracks_experiment.md), [`samples`](https://github.com/fairtracks/fairtracks_standard/blob/master/docs/fairtracks_sample.md), and [`tracks`](https://github.com/fairtracks/fairtracks_standard/blob/master/docs/fairtracks_track.md).
 
-FAIRtracks uses [EDAM](https://bioportal.bioontology.org/ontologies/EDAM),  a domain ontology of data analysis and data management in bio- and other sciences. It comprises concepts related to analysis, modelling, optimisation, and the research data life cycle. Targeting usability by diverse users, the structure of EDAM is relatively simple, divided into four main sections: Topic, Operation, Data (incl. Identifier), and Format.
+FAIRtracks uses [EDAM](https://bioportal.bioontology.org/ontologies/EDAM), a domain ontology of data analysis and data management in bio- and other sciences. It comprises concepts related to analysis, modelling, optimisation, and the research data life cycle. Targeting usability by diverse users, the structure of EDAM is relatively simple, divided into four main sections: Topic, Operation, Data (incl. Identifier), and Format.
 
-This model offers an flexible approach for describing the genomic annotations in a project, albeit one with a stiff learning curve.
+This model offers a flexible approach for describing the genomic annotations in a project, albeit one with a stiff learning curve.
 
 Any conversion from a source schema to FAIRtracks will involve tradeoffs and development of a crosswalk, or interoperable mapping, between them.
+
 ## Strategies for developing interoperable mappings
 
 Not all research projects have the same scale, and any workflow to produce interoperable *FAIRified* metadata that describes a project must be calibrated to what is appropriate.
@@ -87,7 +91,7 @@ For the purposes of this tutorial and case-study, the diversity of research capa
 - **Bigs** are teams with a diversity of skills and resources, and an intention to automate conversion of their output data between schema definitions and submission objectives,
 - **Smalls** are teams with focused or less diverse skills or resources, and an acceptance for manual (or semi-manual) conversion of their output data for alternative uses.
 
-The path from project data and resources to  interoperable / publication-ready metadata comes down to that team's capacity to develop and execute conversion processes.
+The path from project data and resources to interoperable / publication-ready metadata comes down to that team's capacity to develop and execute conversion processes.
 
 A big research project with predefined metadata structure reduced to a relational database, with a dedicated data scientist or software engineer to produce automated scripts for export is very different from a small research team working off ad-hoc spreadsheets and documents.
 
@@ -96,12 +100,14 @@ These constraints imply two different paths towards implementing an interoperabl
 - **Direct**, using some general scripting language or a more specialised tool like Omnipy,
 - **Convenience**, where simpler scripts or manual operations are performed to convert source to a simplified interim schema with an already-coded set of executable scripts to convert to the final model.
 
-![[tutorial-4-workflow.png]]
+![Research workflows for varying project complexity](tutorial-5-workflow.png)
+
 _Figure 2: Research workflows for varying project complexity_
 
 This tutorial is a guide to the approach a **small** team may take using semi-structured data to produce FAIRtracks-conformant metadata. Instead of developing software to go direct from source to a formal hierarchical schema, a more calibrated approach is to work towards a `convenience schema` which has much the same metadata definitions as the full destination schema, but without the same validation enforcement, and with a simplified structure.
 
 This incremental approach permits data to be transformed and validated via more manageable steps.
+
 ## Deriving a convenience schema from a hierarchical model
 
 A **convenience** process works towards producing a single, flattened tabular version of a hierarchical schema, with *visual* or *tacit* validation, rather than strict enforcement of schema requirements.
@@ -115,7 +121,7 @@ The objectives of a *flattened* version of this hierarchy:
 - Ideally one - and **only** one - convenience schema definition,
 - Accessible as a single CSV with a header-row containing terms from across the original hierarchical version,
 - Accessible as a JSON-Schema form for use in whyqd or alternative software,
-- With definitions for each term adjusted to reflect a more permissive approach to data validation *in this step* - validation will still happen before conversion to the standard model
+- With definitions for each term adjusted to reflect a more permissive approach to data validation *in this step* - validation will still happen before conversion to the standard model,
 - A standard script which maps the convenience schema to its final form.
 
 These flattened forms will be available as:
@@ -129,18 +135,21 @@ There are always going to be compromises and one obvious way where this shows up
 | --------- | ----------- |
 | 0001      | New topic A |
 | 0002      | New topic B |
+
 Which references sub-level terms like this:
 
 | Reference | Measurement A | Measurement B |
 | --------- |---------------|---------------|
 | 0001      | 20            | 2.4           |
 | 0002      | 24            | 1.8           |
-Also, say we need to flatten this data into a convenience table where different types of measurements must be merged. This would necessitate lists as values in the new table:
+
+Also, say we need to flatten these data into a convenience table where different types of measurements must be merged. This would necessitate lists as values in the new table:
 
 | Reference | Topic       | Measurement types | Measurements |
 | --------- | ----------- |-------------------|--------------|
 | 0001      | New topic A | [A, B]            | [20, 2.4]    |
 | 0002      | New topic B | [A, B]            | [24, 2.8]    |
+
 The order of the two sets of lists must correspond to ensure appropriate labelling of the measurements. And, obviously, it can get more complex than this. However, we have two types of column here:
 
 - *Extracted values* in `Measurements` are extracted directly from the source data. You can write a crosswalk for this using **whyqd's** `COLLATE` action.
@@ -155,6 +164,7 @@ Whether you choose to add it via a post-crosswalk script, or in the script itsel
 The implications for designing the convenience schema is that it should give flexibility to the user. All fields should be optional so that they can be iteratively built up from diverse source data which may be scattered across multiple source tables, or added in as constants or calculated values later on.
 
 This supports the iterative workflow of transforming into a convenience schema.
+
 ## Scripting mappings as executable crosswalks
 
 The source data for this tutorial are available as follows:
@@ -279,7 +289,7 @@ This leaves us with four transformed data files which need to be merged into our
 
 - Restructure the `omark_scores` field, since this has only a single value, but is structured as `[[x1], [x2], [x3], ...]`.
 - Concatenate it with the `busco_scores` column and update the original column.
-- Assign a new `track_evaluation_method_name` with the static value `['BUSCO scores genome level','BUSCO scores protein level', 'OMArk sum']`
+- Assign a new `track_evaluation_method_name` with the static value `['BUSCO scores genome level','BUSCO scores protein level', 'OMArk sum']`.
 
 Merging and dealing with these requirements is coded as such:
 
@@ -305,6 +315,7 @@ df["track_evaluation_method_name"] = np.tile(["BUSCO scores genome level","BUSCO
 ```
 
 If there are any other constant fields you wish to add, you can do so now, and then the data file can be saved.
+
 ## Expanding from `convenience` to a formal schema
 
 The convenience schema is a formally defined data structure. The formal FAIRtracks model is, likewise, defined. While complex - and beyond the scope of this tutorial - a standardised mapping script can be written which converts (or expands) the convenience method to its final form.
